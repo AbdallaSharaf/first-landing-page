@@ -1,7 +1,8 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 
 
 function classNames(...classes) {
@@ -19,9 +20,32 @@ export default function Example() {
     { name: 'Contact', to: '#contact', current: false },
   ])
 
+  {/*to be revised 
+  const location = useLocation()
+  useEffect(() => {
+    const updateActiveItem = () => {
+      const activeItem = navigation.find(item => item.to === location.hash)
+      if (activeItem) {
+        setNavigation(prevNavigation =>
+          prevNavigation.map(navItem => ({
+            ...navItem,
+            current: navItem === activeItem
+          }))
+        )
+      }
+    }
+
+    updateActiveItem()
+
+    window.addEventListener('scroll', updateActiveItem)
+
+    return () => window.removeEventListener('scroll', updateActiveItem)
+  }, [location.hash])
+  */}
+
+
   const handleLinkClick = (item) => {
-    console.log(item.to)
-    const targetElement = document.getElementById(item.to.substring(1)); // Remove the leading "#"
+    const targetElement = document.getElementById(item.to.substring(1));
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
@@ -34,7 +58,7 @@ export default function Example() {
   };
 
   return (
-    <Disclosure as="nav" className="shadow-md fixed top-0 left-0 right-0 z-50 bg-white">
+    <Disclosure as="nav" className="shadow-md fixed top-0 left-0 right-0 bg-white page-scroll z-10">
       <div className="mx-auto w-full py-2 px-2 sm:px-6 lg:px-8">
         <div className="flex flex-1 items-center px-10 justify-between sm:items-stretch sm:justify-between">
           <div className="flex flex-shrink-0 items-center">
@@ -53,7 +77,6 @@ export default function Example() {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <>
                     <Link
                       key={item.name}
                       to={item.to}
@@ -61,7 +84,7 @@ export default function Example() {
                       aria-current={item.current ? 'page' : undefined}
                       className={classNames(
                         item.current ? 'text-gray-600' : 'text-gray-600',
-                        'rounded-md px-4 py-3 font-medium group text-xl scroll-smooth',  // Increased padding and font size
+                        'rounded-md px-4 py-3 font-medium group text-xl scroll-smooth',
                       )}
                     >
                       {item.name}
@@ -69,7 +92,6 @@ export default function Example() {
                         item.current ? 'bg-blue-500 h-[2px] w-full' : 'bg-blue-500 h-[2px] w-0 group-hover:w-full transition-all duration-500 ease-in-out'
                       )} />
                     </Link>
-                  </>
                 ))}
               </div>
             </div>

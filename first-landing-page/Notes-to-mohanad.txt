@@ -1,0 +1,4 @@
+navbar scrolling
+modal not closing on click
+smooth navbar opening for mobile view 
+navbar covering content {done}

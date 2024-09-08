@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCar, faPaperclip, faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faCar, faPaperclip, faCoffee, faHeart, faStar, faCheckCircle, faFile, faGlobe } from '@fortawesome/free-solid-svg-icons';
 // Assuming you're using React Icons for convenience, you can import it as well
 
 const iconMap = {
@@ -8,16 +8,20 @@ const iconMap = {
     faPaperclip,
     faCar,
     faHeart,
+    faCheckCircle,
+    faFile,
+    faGlobe,
+    faStar,
   };
 
-const Feature = ({icon, title, text}) => {
+const Feature = ({cmp, icon, title, text}) => {
     const iconComponent = iconMap[icon]
   return (
     <div className='flex flex-col'>
         <div>
-            <FontAwesomeIcon size='2x' className='bg-gradient-to-r from-indigo-400 to-blue-400 w-10 h-10 p-8 rounded-full shadow-md' icon={iconComponent} />
+            <FontAwesomeIcon size='2x' className={`bg-gradient-to-r from-indigo-400 to-blue-400 ${cmp === 'features' ? 'w-10 h-10 p-7' : 'w-11 h-11 p-9'} rounded-full shadow-md`} icon={iconComponent} />
             <h2 className='text-xl font-semibold mt-8 mb-3'>{title}</h2>
-            <p className='font-thin text-gray-500'>{text}</p>
+            <p className={`font-thin ${cmp === 'features' ? 'text-gray-500' : 'text-gray-200'}`}>{text}</p>
         </div>
     </div>
   )
