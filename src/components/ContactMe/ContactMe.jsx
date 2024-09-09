@@ -58,7 +58,7 @@ const ContactMe =() => {
                     <button className='mb-12 px-8 py-3 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out' type="submit">SEND MESSAGE</button>
                 </form>
             </div>
-            <div className='md:ml-20 px-8 text-opacity-75'>
+            <div className='lg:ml-20 px-8 text-opacity-75'>
                 <h3 className='mt-16 text-xl font-thin mb-8'>Contact Info</h3>
                 <p className='text-sm my-4'><FontAwesomeIcon className='mr-2' icon={faMapMarker} color='white'/> Address</p>
                 <p className='text-sm mb-6 text-opacity-60 text-white'>{Contact.address}</p>

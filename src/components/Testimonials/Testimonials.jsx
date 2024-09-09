@@ -7,7 +7,7 @@ const Testimonials = () => {
             WHAT OUR CLIENTS SAY
         </h2>
         <div className='mx-auto my-3 bg-blue-500 h-1 w-14'></div>
-        <div className='my-16 grid grid-cols-1 md:grid-cols-3 w-[100%] md:w-[70%] mx-auto gap-8 px-8'>
+        <div className='my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[100%] lg:w-[70%] mx-auto gap-8 px-8'>
             {testimonials.map((item, id)=>
                 <div key={id} className='flex gap-3'>
                     <img className='w-16 h-16 rounded-full' src={item.img}/>

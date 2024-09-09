@@ -26,14 +26,15 @@ const Gallery = () => {
         <div className='mx-auto my-3 bg-blue-500 h-1 w-14'></div>
         <p className='font-thin text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
     </div>
-    <div className='mt-16 gap-[1px]  grid grid-cols-1 w-[100%] md:w-[80%] mx-auto md:grid-cols-3 z-auto'>
+    <div className='mt-16 gap-[1px]  grid grid-cols-1 w-[100%] md:w-[90%] lg:w-[80%] mx-auto md:grid-cols-2 lg:grid-cols-3 z-auto'>
         {gallery.map((item)=>
-        <div key={item.id || item.smallImage} className='relative group'>
+        <div key={item.id || item.smallImage} className='relative group mx-auto'>
         <img
           src={item.smallImage}
           alt={item.alt || 'Gallery Image'}
         />
-        <div className='absolute inset-0 flex justify-center items-center bg-blue-500 bg-opacity-75 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform' onClick={() => openModal(item)}>
+        <div className='absolute inset-0 flex justify-center items-center
+         bg-blue-500 bg-opacity-75 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform' onClick={() => openModal(item)}>
           <p className='text-white text-xl font-thin'>
             {item.title || 'Image Title'}
           </p>
