@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://abdallasharaf.github.io/first-landing-page/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
@@ -17,6 +20,7 @@
     "@headlessui/react": "^2.1.5",
     "@heroicons/react": "^2.1.5",
     "fa-icons": "^0.2.0",
+    "gh-pages": "^6.1.1",
     "headlessui": "^0.0.0",
     "intersection-observer": "^0.12.2",
     "lodash": "^4.17.21",
