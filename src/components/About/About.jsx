@@ -1,5 +1,5 @@
 import React from 'react'
-import image from './../../assets/images/about.jpg'
+import image from '../../assets/images/about.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ABOUTWHY as why } from '../../Config';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
